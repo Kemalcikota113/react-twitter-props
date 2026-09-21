@@ -15,6 +15,7 @@ function App() {
     const [loggedInUser] = useState(user)
     const [tweets, setTweets] = useState(initialTweets)
     const [createTweetContent, setCreateTweetContent] = useState('')
+    const [searchTerm, setSearchTerm] = useState('')
 
     const addTweet = (e) => {
         e.preventDefault()

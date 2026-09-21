@@ -1,5 +1,6 @@
 import CreateTweet from "./CreateTweet"
 import TweetsComponent from "./TweetsComponent"
+    
 
 function MainComponent({ tweets, loggedInUser, createTweetContent, setCreateTweetContent, addTweet }) {
     return (
