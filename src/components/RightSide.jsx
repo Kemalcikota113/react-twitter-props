@@ -3,10 +3,13 @@
 import WidgetComponent from './WidgetComponent.jsx'
 import SearchBarComponent from './SearchBarComponent.jsx'
 
-function RightSide() {
+function RightSide({ searchTerm, setSearchTerm }) {
     return (
         <aside className='right-side'>
-            <SearchBarComponent />
+            <SearchBarComponent
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+            />
             <WidgetComponent />
 
             

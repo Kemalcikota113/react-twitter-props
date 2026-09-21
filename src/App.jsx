@@ -3,7 +3,6 @@ import { useState } from 'react'
 import MainComponent from './components/MainComponent.jsx'
 import RightSide from './components/RightSide.jsx'
 import LeftSide from './components/LeftSide.jsx'
-import CreateTweet from './components/CreateTweet.jsx'
 
 // The initial tweet objects that should be displayed
 import initialTweets from './assets/data/tweets.js'
@@ -16,6 +15,10 @@ function App() {
     const [tweets, setTweets] = useState(initialTweets)
     const [createTweetContent, setCreateTweetContent] = useState('')
     const [searchTerm, setSearchTerm] = useState('')
+
+    const filteredTweets = tweets.filter((tweet) => {
+        return tweet.content.toLowerCase().includes(searchTerm.toLowerCase())
+    })
 
     const addTweet = (e) => {
         e.preventDefault()
@@ -41,13 +44,16 @@ function App() {
 
 
             <MainComponent
-                tweets={tweets}
+                tweets={filteredTweets}
                 loggedInUser={loggedInUser}
                 createTweetContent={createTweetContent}
                 setCreateTweetContent={setCreateTweetContent}
                 addTweet={addTweet}
             />
-            <RightSide />
+            <RightSide
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+            />
 
         </div>
     )
